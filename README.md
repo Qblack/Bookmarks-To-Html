@@ -1,0 +1,1 @@
+This script goes into the windows Bookmark bar directory and outputs them as html links with headers for directories. 
