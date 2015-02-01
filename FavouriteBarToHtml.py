@@ -37,6 +37,7 @@ def write_bookmarks(file_name, path):
         fh.write("<html>\n")
         fh.write("<head>\n")
         fh.write("<title>{user}'s Links</title>\n".format(user=username))
+        fh.write('<link href="styles.css" rel="stylesheet">')
         fh.write("</head>\n")
         fh.write("<body>\n")
 
@@ -44,7 +45,7 @@ def write_bookmarks(file_name, path):
             directory = os.path.split(root)[1]
             fh.write("<dl>\n")
 
-            fh.write("\t<dt><h3>{header}</h3></dt>\n".format(header=directory))
+            fh.write("\t<dt>{header}</dt>\n".format(header=directory))
             for link in links:
                 if link.endswith('.url'):
                     url, name = get_link_url(link, root)
@@ -59,5 +60,5 @@ if __name__ == '__main__':
     username = getpass.getuser()
     DRIVE = r'C:\\'
     bar_path = os.path.join(DRIVE, "Users", username, "Favorites", "Links")
-    file = "bookmarks.html"
+    file = "index.html"
     write_bookmarks(file, bar_path)
